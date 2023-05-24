@@ -1,5 +1,4 @@
 import serial
-import json
 from time import sleep
 from colorama import init
 from colorama.ansi import Fore
@@ -13,7 +12,7 @@ sleep(2)
 
 archivo = open("color.csv", 'w')
 # archivo = open("color.csv", 'a+')
-archivo.write("Color,r,g,b,class\n")
+archivo.write("name,r,g,b,color\n")
 
 i = 0
 while i < 100:
@@ -22,7 +21,7 @@ while i < 100:
         data = data.replace('\r\n', '')
         data = data.split('-')
 
-        r, g, b = data[0:3]
+        r, g, b = data
         print(r, g, b, "<==>", i+1)
         archivo.write(f"{colores[0]},{r},{g},{b},0\n")
 
@@ -32,7 +31,7 @@ while i < 100:
         print(e)
         break
 
+uno.close()
 print(Fore.YELLOW + "[!] Conexion terminada")
-
 archivo.close()
 

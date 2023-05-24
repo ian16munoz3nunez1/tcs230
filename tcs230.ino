@@ -24,6 +24,8 @@ void setup()
     Serial.begin(9600);
     Serial.setTimeout(10);
 
+    while(!Serial){}
+
 }
 
 void loop()
