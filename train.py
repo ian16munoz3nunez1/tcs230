@@ -28,7 +28,7 @@ def resultados(model, x, y, title):
 
 ######## Decision Tree Classifier
 print("\n*** Decision Tree Classifier ***")
-model = Pipeline([('scaler', StandardScaler()), ('cla', DecisionTreeClassifier(max_depth=5))])
+model = Pipeline([('scaler', StandardScaler()), ('cla', DecisionTreeClassifier(max_depth=16))])
 model.fit(xTrain, yTrain)
 pickle.dump(model, open('DTC.sav', 'wb'))
 
@@ -39,7 +39,7 @@ resultados(model, x, y, "Decision Tree Classifier")
 
 ######## K Neighbors Classifier
 print("\n*** K Neighbors Classifier ***")
-model = Pipeline([('scaler', StandardScaler()), ('cla', KNeighborsClassifier(n_neighbors=7))])
+model = Pipeline([('scaler', StandardScaler()), ('cla', KNeighborsClassifier(n_neighbors=4))])
 model.fit(xTrain, yTrain)
 pickle.dump(model, open('KNN.sav', 'wb'))
 
@@ -50,7 +50,7 @@ resultados(model, x, y, "K Neighbors Classifier")
 
 ######## SVM Classifier
 print("\n*** SVM Classifier ***")
-model = Pipeline([('scaler', StandardScaler()), ('cla', SVC(C=4, kernel='rbf'))])
+model = Pipeline([('scaler', StandardScaler()), ('cla', SVC(C=24, kernel='rbf'))])
 model.fit(xTrain, yTrain)
 pickle.dump(model, open('SVC.sav', 'wb'))
 
